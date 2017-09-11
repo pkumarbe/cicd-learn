@@ -19,8 +19,8 @@ pipeline:
       - cd /tmp/
       - rm -rf cicd-learn
       - sudo git clone https://github.com/pkumarbe/cicd-learn.git
-      - sudo cd /tmp/cicd-learn
-      - sudo docker build -t flask_image .
+      - sudo cd /tmp/cicd-learn/
+      - sudo docker build -t flask_image /tmp/cicd-learn/
       - sudo docker run -dti --name flask_cont -p 8001:8001 flask_image
     when:
       event: push
