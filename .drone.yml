@@ -12,6 +12,7 @@ pipeline:
       - env
     script:
       - sudo yum install docker
+      - sudo systemctl start docker
       - cd /tmp/
       - rm -rf cicd-demo
       - sudo git clone https://github.com/pkumarbe/cicd-learn.git
