@@ -1,5 +1,5 @@
 pipeline:
-  build:
+  mynewtask:
     image: redis
     commands:
       - env
