@@ -2,6 +2,7 @@ pipeline:
   mynewtask:
     image: redis
     commands:
-      - env
+      - env 
+      - echo "hello"
     when:
       event: push
