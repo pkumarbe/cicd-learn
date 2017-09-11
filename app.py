@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def main():
-    return "Welcome to gcp World Compute"
+    return "Welcome to CICD"
 @app.route("/hello")
 def hello():
     return "Hello Mr "
