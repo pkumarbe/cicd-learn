@@ -14,9 +14,9 @@ pipeline:
       - sudo yum install docker
       - sudo systemctl start docker
       - cd /tmp/
-      - rm -rf cicd-demo
+      - rm -rf cicd-learn
       - sudo git clone https://github.com/pkumarbe/cicd-learn.git
-      - sudo cd cicd-demo
+      - sudo cd cicd-learn
       - sudo docker stop flask_cont
       - sudo docker rm flask_cont
       - sudo docker build -t flask_image .
