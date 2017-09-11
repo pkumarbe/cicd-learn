@@ -13,14 +13,14 @@ pipeline:
     script:
       - sudo yum install docker
       - sudo systemctl start docker
+      - sudo docker stop flask_cont
+      - sudo docker rm flask_cont
+      - sudo docker rmi flask_image
       - cd /tmp/
       - rm -rf cicd-learn
       - sudo git clone https://github.com/pkumarbe/cicd-learn.git
       - sudo cd cicd-learn
-      - sudo docker stop flask_cont
-      - sudo docker rm flask_cont
-      - sudo docker rmi flask_image
       - sudo docker build -t flask_image .
-      - sudo docker run -dti --name flask_cont -p 8001:8001 tmp/flask_image
+      - sudo docker run -dti --name flask_cont -p 8001:8001 flask_image
     when:
       event: push
