@@ -1,8 +1,24 @@
 pipeline:
-  mynewtask:
-    image: redis
+  build:
+    image: appleboy/drone-ssh
+    pull: true
+    host: ${HOST}
+    user: ${USER}
+    #key: ${SSH_KEY}
+    password: ${PASS}
+    port: 22
+    command_timeout: 180
     commands:
-      - env 
-      - echo "hello"
+      - env
+    script:
+      - sudo yum install docker
+      - cd /tmp/
+      - rm -rf cicd-demo
+      - sudo git clone https://github.com/pkumarbe/cicd-learn.git
+      - sudo cd cicd-demo
+      - sudo docker stop flask_cont
+      - sudo docker rm flask_cont
+      - sudo docker build -t flask_image .
+      - sudo docker run -dti --name flask_cont -p 8001:8001 flask_image
     when:
       event: push
