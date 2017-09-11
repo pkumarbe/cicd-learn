@@ -20,7 +20,7 @@ pipeline:
       - sudo docker stop flask_cont
       - sudo docker rm flask_cont
       - sudo docker rmi flask_image
-      - sudo docker build -t tmp/flask_image .
+      - sudo docker build -t flask_image .
       - sudo docker run -dti --name flask_cont -p 8001:8001 tmp/flask_image
     when:
       event: push
