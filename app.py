@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def main():
-    return "Welcome to CICD"
+    return "Welcome to CICD demo"
 @app.route("/gcp")
 def gcp():
     return "welcome to GCP"
