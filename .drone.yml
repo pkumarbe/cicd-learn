@@ -24,3 +24,15 @@ pipeline:
       - sudo docker run -dti --name flask_cont -p 8001:8001 flask_image
     when:
       event: push
+  publish:
+    image: plugins/docker
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    email: mymail8500@gmail.com
+    repo: docker pull pk1dockerhub/cicd_drone_img
+    tag: latest
+    file: Dockerfile
+    environment:
+      - DOCKER_LAUNCH_DEBUG=true
+    when:
+        event: push
